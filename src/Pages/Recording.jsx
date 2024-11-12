@@ -2,6 +2,7 @@ import "../Css/Recording.css";
 import { RiSettings2Fill } from "react-icons/ri";
 import { FaCircle } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Recording = () => {
   return (
@@ -37,9 +38,11 @@ const Recording = () => {
         <div className="p-3 md:p-4 rounded-full border-2 border-[#F3B204]">
           <FaCircle className="text-[#F3B204]" size={25} />
         </div>
+        <Link to="/VoiceList">
         <div className="p-3 md:p-4 rounded-full border-2 border-[#F3B204]">
           <IoMenu className="text-[#F3B204]" size={25} />
         </div>
+        </Link>
       </div>
     </div>
   );
