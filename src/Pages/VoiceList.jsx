@@ -10,8 +10,7 @@ const VoiceList = () => {
                 {/* Header Section with Back Button and Search */}
                 <div className="flex flex-row items-center justify-between w-full px-3 mt-2 space-y-4 md:mt-10 md:items-start md:justify-start md:px-10 sm:space-y-0">
                     {/* Back Button */}
-                        <FaArrowLeftLong className="text-[#F3B204] cursor-pointer text-xl md:text-3xl mt-3 md:mt-0" onClick={() => navigate(-1)}
- />
+                        <FaArrowLeftLong className="text-[#F3B204] cursor-pointer text-xl md:text-3xl mt-3 md:mt-0" onClick={() => navigate(-1)}/>
                     {/* Search Container */}
                     <div className="relative w-full md:w-[58%] ml-4 md:ml-[238px]">
                         <input

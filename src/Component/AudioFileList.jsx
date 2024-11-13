@@ -1,5 +1,6 @@
 import { HiDotsVertical } from 'react-icons/hi';
 import { AudioFiles } from '../Utils/AudioFiles';
+import VoiceMenu from '../Pages/VoiceMenu';
 
 const AudioFileList = () => {
   return (
@@ -21,7 +22,10 @@ const AudioFileList = () => {
             </div>
           </div>
           <div className="w-[15%] sm:w-[8%] flex justify-center">
-            <HiDotsVertical className="text-[#F3B204] text-[30px] sm:text-[40px]" />
+            <button onClick={() => document.getElementById('my_modal_2').showModal()}>
+              <HiDotsVertical className="text-[#F3B204] text-[30px] sm:text-[40px]" />
+            </button>
+            <VoiceMenu/>
           </div>
         </div>
       ))}
