@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SplashScreen from "./Pages/SplashScreen";
 import Recording from "./Pages/Recording";
 import VoiceList from "./Pages/VoiceList";
+import VoiceScreen from "./Pages/VoiceScreen";
 const AppRouter = () => {
   const routing = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const AppRouter = () => {
     {
       path: "/VoiceList",
       element: <VoiceList/>
+    },
+    {
+      path: "/VoiceScreen",
+      element: <VoiceScreen/>
     }
   ]);
   return (

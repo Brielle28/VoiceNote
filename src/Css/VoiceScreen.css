@@ -1,0 +1,70 @@
+.custom-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #111e28;
+  outline: none;
+  position: relative;
+}
+
+/* Progress fill effect */
+.custom-range {
+  background: linear-gradient(
+    to right,
+    #f3b204 0%,
+    #f3b204 var(--range-progress),
+    #111e28 var(--range-progress),
+    #111e28 100%
+  );
+}
+
+/* Thumb styles */
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 7px;
+  height: 20px;
+  background: white !important;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: -6px; /* This centers the thumb vertically */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.custom-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: white !important;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Track styles - making them transparent to show the background */
+.custom-range::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+.custom-range::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: transparent;
+  border-radius: 4px;
+}
+
+/* Additional Firefox-specific centering */
+.custom-range::-moz-range-thumb {
+  transform: translateY(-1px); /* Fine-tune Firefox thumb position */
+}

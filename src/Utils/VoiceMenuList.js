@@ -2,7 +2,8 @@ export const VoiceMenuList = [
   { 
     id: 1, 
     icon: "play",
-    text: 'Listen' 
+    text: 'Listen' ,
+    link: "/VoiceScreen"
   },
   { 
     id: 2, 
