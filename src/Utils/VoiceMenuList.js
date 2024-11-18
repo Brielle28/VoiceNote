@@ -3,7 +3,7 @@ export const VoiceMenuList = [
     id: 1, 
     icon: "play",
     text: 'Listen' ,
-    link: "/VoiceScreen"
+    link: "/VoiceDetails"
   },
   { 
     id: 2, 

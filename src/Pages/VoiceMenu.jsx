@@ -4,7 +4,7 @@ import { MdDelete } from 'react-icons/md';
 import { VoiceMenuList } from "../Utils/VoiceMenuList";
 import { Link } from 'react-router-dom';
 
-const VoiceMenu = () => {
+const VoiceMenu = ({audioId, modalId}) => {
     const getIcon = (iconName) => {
         switch (iconName) {
             case "play":
@@ -21,10 +21,11 @@ const VoiceMenu = () => {
     };
 
     return (
-        <dialog id="my_modal_2" className="modal">
+        <dialog id={modalId} className="modal">
             <div className="border-[1px] border-[#F3B204] modal-box rounded-[7px] bg-[#04121C] py-0 px-0">
                 {VoiceMenuList.map((action) => (
-                    <Link key={action.id} to={action.link}>
+                    // <Link key={action.id} to={${action.link}/${item.id}}>
+                    <Link key={action.id} to={`${action.link}/${audioId}`}>
                         <div
                             className="flex items-center justify-start gap-10 py-3 pl-5 border-b-[1px] border-[#F3B204] hover:bg-[#111E28] cursor-pointer"
                         >

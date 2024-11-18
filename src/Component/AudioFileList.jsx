@@ -3,6 +3,7 @@ import { AudioFiles } from '../Utils/AudioFiles';
 import VoiceMenu from '../Pages/VoiceMenu';
 
 const AudioFileList = () => {
+  
   return (
     <div className="w-full md:w-[75%] lg:w-[56.7%] mt-6 md:mt-10 bg-[#04121C] px-2 sm:px-4">
       {AudioFiles.map((file, index) => (
@@ -22,10 +23,11 @@ const AudioFileList = () => {
             </div>
           </div>
           <div className="w-[15%] sm:w-[8%] flex justify-center">
-            <button onClick={() => document.getElementById('my_modal_2').showModal()}>
+            <button onClick={() => document.getElementById(`modal_${file.id}`).showModal()}>
               <HiDotsVertical className="text-[#F3B204] text-[30px] sm:text-[40px]" />
             </button>
-            <VoiceMenu/>
+            {/* <VoiceMenu audioId={file.id}/> */}
+            <VoiceMenu audioId={file.id} modalId={`modal_${file.id}`} />
           </div>
         </div>
       ))}
