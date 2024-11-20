@@ -1,4 +1,3 @@
-import React from 'react';
 import { RecordingSectionTypes } from '../Utils/RecordingSection';
 import { Link } from 'react-router-dom';
 import "../Css/RecordingSection.css"

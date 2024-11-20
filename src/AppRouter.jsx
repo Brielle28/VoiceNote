@@ -4,6 +4,7 @@ import Recording from "./Pages/Recording";
 import VoiceList from "./Pages/VoiceList";
 import VoiceDetails from "./Pages/VoiceDetails";
 import RecordingSection from "./Pages/RecordingSection";
+import UserProvider from "./Context/UserProvider";
 const AppRouter = () => {
   const routing = createBrowserRouter([
     {
@@ -12,25 +13,26 @@ const AppRouter = () => {
     },
     {
       path: "/RecordingSection",
-      element: <RecordingSection/>
+      element: <RecordingSection />
     },
     {
       path: "/recording",
-      element:<Recording/>
+      element: <Recording />
     },
     {
       path: "/VoiceList",
-      element: <VoiceList/>
+      element: <VoiceList />
     },
     {
       path: "/VoiceDetails/:id",
-      element: <VoiceDetails/>
+      element: <VoiceDetails />
     }
   ]);
   return (
     <>
-      {" "}
-      <RouterProvider router={routing} />
+      <UserProvider>
+        <RouterProvider router={routing} />
+      </UserProvider>
     </>
   );
 };

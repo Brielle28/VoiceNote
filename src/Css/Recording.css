@@ -1,4 +1,16 @@
  /* record write up */
+ .NonAnimateloader {
+  width: fit-content;
+  font-weight: bold;
+  color: #F3B204;
+  font-family: monospace;
+  font-size: 15px;
+  clip-path: inset(0 3ch 0 0);
+}
+.NonAnimateloader:before {
+  content:"Audio Record"
+}
+
 .loader {
     width: fit-content;
     font-weight: bold;
@@ -15,6 +27,13 @@
 
 
 /* record cricle */
+.NonAnimateloadercircle {
+  width: 130px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 20px solid black;
+  border-right-color: #F3B204;
+}
 .loadercircle {
   width: 130px;
   aspect-ratio: 1;
