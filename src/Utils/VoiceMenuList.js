@@ -1,23 +1,26 @@
 export const VoiceMenuList = [
-  { 
-    id: 1, 
+  {
+    id: 1,
     icon: "play",
-    text: 'Listen' ,
-    link: "/VoiceDetails"
+    text: "Listen",
+    link: "/VoiceDetails",
   },
-  { 
-    id: 2, 
+  {
+    id: 2,
     icon: "edit",
-    text: 'Edit Name' 
+    text: "Edit Name",
+    modalType: "edit",
   },
-  { 
-    id: 3, 
+  {
+    id: 3,
     icon: "delete",
-    text: 'Delete' 
+    text: "Delete",
+    modalType: "delete",
   },
-  { 
-    id: 4, 
+  {
+    id: 4,
     icon: "share",
-    text: 'Share' 
+    text: "Share",
+    modalType: "share",
   },
 ];

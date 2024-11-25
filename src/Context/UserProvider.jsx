@@ -150,7 +150,6 @@ const UserProvider = ({ children }) => {
         setRecordings(storedRecordings);
     }, []);
 
-    console.log(recordings)
     // Timer logic to track recording length
     useEffect(() => {
         let interval;
@@ -204,6 +203,21 @@ const UserProvider = ({ children }) => {
         const seconds = String(duration % 60).padStart(2, '0');
         return `${minutes}:${seconds}s`;
     };
+
+    // delete audio recording
+    const DeleteRecording = (id) => {
+        // Filter out the recording with the specified ID
+        const updatedRecordings = recordings.filter(recording => recording.id !== id);
+    
+        // Update state
+        setRecordings(updatedRecordings);
+    
+        // Update local storage
+        localStorage.setItem("recordings", JSON.stringify(updatedRecordings));
+    };
+    
+
+
     // Context value
     const value = {
         recordings,
@@ -220,7 +234,8 @@ const UserProvider = ({ children }) => {
         isRecording,
         setIsRecording,
         setFileSize,
-        formatDuration
+        formatDuration,
+        DeleteRecording,
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

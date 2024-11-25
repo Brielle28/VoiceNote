@@ -22,11 +22,11 @@
 //         setTogglePlay(!togglePlay)
 //     }
 
-    
+
 //     useEffect(()=>{
 //         const audio = recordings.find((audio) => audio.id === parseInt(id));
 //         setFoundAudio(audio)
-        
+
 //     }, [id, recordings])
 
 //     if (!foundAudio) return <div> audio not found</div>;
@@ -108,6 +108,7 @@ import { GiPauseButton } from "react-icons/gi";
 import "../Css/VoiceScreen.css"
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../Context/UserProvider';
+import DeleteModal from '../Component/DeleteModal';
 
 const VoiceDetails = () => {
     const [value, setValue] = useState(0);
@@ -164,7 +165,7 @@ const VoiceDetails = () => {
         const speeds = [1, 1.5, 2];
         const currentIndex = speeds.indexOf(playbackRate);
         const nextSpeed = speeds[(currentIndex + 1) % speeds.length];
-        
+
         if (audioRef.current) {
             audioRef.current.playbackRate = nextSpeed;
             setPlaybackRate(nextSpeed);
@@ -180,12 +181,14 @@ const VoiceDetails = () => {
 
     if (!foundAudio) return <div>Audio not found</div>;
 
+
+
     return (
         <div className='h-screen bg-[#04121C] w-full flex flex-col items-center justify-start'>
             {/* Audio Element (hidden) */}
-            <audio 
-                ref={audioRef} 
-                src={foundAudio.url} 
+            <audio
+                ref={audioRef}
+                src={foundAudio.url}
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleTimeUpdate}
                 onEnded={() => setIsPlaying(false)}
@@ -198,7 +201,10 @@ const VoiceDetails = () => {
                 <div className='flex items-center justify-center flex-row gap-4 md:gap-[120px]'>
                     <h1 className='text-center text-base md:text-[25px]'>{foundAudio.name}</h1>
                     <div className='flex items-center justify-center gap-2 md:gap-7'>
-                        <MdDelete />
+                        {/* <MdDelete  onClick={DeleteRecording(foundAudio.id)}/>
+                         */}
+                        <button onClick={() => document.getElementById(`modal_${foundAudio.id}`).showModal()}><MdDelete /></button>
+                        <DeleteModal audioId={foundAudio.id} modalId={`modal_${foundAudio.id}`}/>
                         <FaShareAlt />
                     </div>
                 </div>
@@ -228,20 +234,20 @@ const VoiceDetails = () => {
             {/* Controls Section */}
             <div className='w-[90%] sm:w-[80%] lg:w-[57%] flex flex-col items-center justify-center'>
                 <div className='flex items-center justify-center w-full gap-2 mt-8 sm:gap-4 sm:mt-14'>
-                    <button 
+                    <button
                         className='p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]'
                         onClick={() => skipTime(-10)}
                     >
                         <BsFillSkipBackwardFill className='text-[#F3B204] text-[16px] sm:text-[20px]' />
                     </button>
-                    <button 
+                    <button
                         className='p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]'
                         onClick={() => skipTime(-5)}
                     >
                         <TfiControlBackward className='text-[#F3B204] text-[24px] sm:text-[30px]' />
                     </button>
-                    <button 
-                        className='p-3 sm:p-4 border-2 border-[#F3B204] rounded-[50px]' 
+                    <button
+                        className='p-3 sm:p-4 border-2 border-[#F3B204] rounded-[50px]'
                         onClick={togglePlay}
                     >
                         {isPlaying ? (
@@ -250,20 +256,20 @@ const VoiceDetails = () => {
                             <FaPlay className="text-[#F3B204] text-[32px] sm:text-[40px]" />
                         )}
                     </button>
-                    <button 
+                    <button
                         className='p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]'
                         onClick={() => skipTime(5)}
                     >
                         <TfiControlForward className='text-[#F3B204] text-[24px] sm:text-[30px]' />
                     </button>
-                    <button 
+                    <button
                         className='p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]'
                         onClick={() => skipTime(10)}
                     >
                         <BsFillSkipForwardFill className='text-[#F3B204] text-[16px] sm:text-[20px]' />
                     </button>
                 </div>
-                <div 
+                <div
                     className="p-1 sm:p-2 border-2 border-[#F3B204] rounded-full mt-3 sm:mt-5 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] flex items-center justify-center cursor-pointer"
                     onClick={changePlaybackSpeed}
                 >
