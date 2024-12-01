@@ -7,7 +7,7 @@ const SplashScreen = () => {
         <div className="border-1 rounded-[10px] border-[#F3B204] p-10 shadow-lg shadow-[#F3B204]">
           <FaMicrophoneAlt size={100}  className="text-[#F3B204]"/>
         </div>
-        <Link to="/RecordingSection" className="flex items-center justify-center w-full">
+        <Link to="/Recording" className="flex items-center justify-center w-full">
         <button className="border-1 rounded-[10px] border-[#F3B204] mt-32 py-3 px-28 shadow-lg shadow-[#F3B204] text-[#F3B204] font-semibold ">
           start
         </button>

@@ -11,10 +11,10 @@ const AppRouter = () => {
       path: "/",
       element: < SplashScreen />,
     },
-    {
-      path: "/RecordingSection",
-      element: <RecordingSection />
-    },
+    // {
+    //   path: "/RecordingSection",
+    //   element: <RecordingSection />
+    // },
     {
       path: "/recording",
       element: <Recording />

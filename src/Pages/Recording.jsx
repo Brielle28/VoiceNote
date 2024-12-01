@@ -43,13 +43,13 @@ const Recording = () => {
 
       {/* Spinner */}
       {isRecording ? (
-        <div className="mt-20 lg:mt-24 loadercircle"></div>
+        <div className="mt-36 lg:mt-24 loadercircle"></div>
       ) : (
-        <div className="mt-20 lg:mt-24 NonAnimateloadercircle"></div>
+        <div className="mt-36 lg:mt-24 NonAnimateloadercircle"></div>
       )}
 
       {/* Stop, Pause, Menu */}
-      <div className="flex items-center justify-center w-full gap-10 mt-28 md:gap-10 lg:gap-12 md:mt-32">
+      <div className="flex items-center justify-center w-full gap-10 mt-40 md:gap-10 lg:gap-12 md:mt-32">
         <div
           className="p-3 md:p-4 rounded-full border-2 border-[#F3B204]"
           onClick={handleStopAndSave}

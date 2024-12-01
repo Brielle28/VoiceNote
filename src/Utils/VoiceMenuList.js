@@ -17,10 +17,4 @@ export const VoiceMenuList = [
     text: "Delete",
     modalType: "delete",
   },
-  {
-    id: 4,
-    icon: "share",
-    text: "Share",
-    modalType: "share",
-  },
 ];

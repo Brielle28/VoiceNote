@@ -1,7 +1,7 @@
 import { FiAlertTriangle } from "react-icons/fi";
 
 
-const ShareModal = ({ audioId, modalId }) => {
+const DownloadModal = ({ audioId, modalId }) => {
     return (
         <>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
@@ -25,4 +25,4 @@ const ShareModal = ({ audioId, modalId }) => {
     )
 }
 
-export default ShareModal
+export default DownloadModal
