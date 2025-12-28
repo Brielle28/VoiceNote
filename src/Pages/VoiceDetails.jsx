@@ -1,99 +1,3 @@
-// import { useContext, useEffect, useState } from 'react'
-// import { FaArrowLeftLong } from "react-icons/fa6";
-// import { MdDelete } from 'react-icons/md';
-// import { FaShareAlt } from 'react-icons/fa';
-// import { FaPlay } from "react-icons/fa";
-// import { BsFillSkipBackwardFill } from "react-icons/bs";
-// import { BsFillSkipForwardFill } from "react-icons/bs";
-// import { TfiControlForward } from "react-icons/tfi";
-// import { TfiControlBackward } from "react-icons/tfi";
-// import { GiPauseButton } from "react-icons/gi";
-// import "../Css/VoiceScreen.css"
-// import { useNavigate, useParams } from 'react-router-dom';
-// import { UserContext } from '../Context/UserProvider';
-// const VoiceDetails = () => {
-//     const [value, setValue] = useState(0);
-//     const [togglePlay, setTogglePlay] = useState(false)
-//     const navigate = useNavigate()
-//     const {id} = useParams()
-//     const [foundAudio, setFoundAudio] = useState(null)
-//     const {recordings, formatDuration} = useContext(UserContext)
-//     const TogglePlay = () => {
-//         setTogglePlay(!togglePlay)
-//     }
-
-//     useEffect(()=>{
-//         const audio = recordings.find((audio) => audio.id === parseInt(id));
-//         setFoundAudio(audio)
-
-//     }, [id, recordings])
-
-//     if (!foundAudio) return <div> audio not found</div>;
-
-//     return (
-//         <div className='h-screen bg-[#04121C] w-full flex flex-col items-center justify-start'>
-//             {/* Header Section */}
-//             <div className='flex items-center w-full justify-between px-4 sm:justify-evenly text-[#F3B204] text-[20px] sm:text-[25px] mt-7 md:mt-10'>
-//                 <FaArrowLeftLong onClick={() => navigate(-1)} />
-
-//                 <div className='flex items-center justify-center flex-row gap-4 md:gap-[120px]'>
-//                     <h1 className='text-center text-base md:text-[25px]'>{foundAudio.name}</h1>
-//                     <div className='flex items-center justify-center gap-2 md:gap-7'>
-//                         <MdDelete />
-//                         <FaShareAlt />
-//                     </div>
-//                 </div>
-//             </div>
-
-//             {/* Player Section */}
-//             <div className='flex items-center  justify-between md:mt-[150px] mt-[280px] lg:mt-[300px] w-[80%] gap-5 md:gap-0  lg:w-[57%]'>
-//                 <h1 className='text-[#F3B204] text-[16px] sm:text-[20px]'>00:00</h1>
-//                 <div className="w-[75%] sm:w-[80%] relative">
-//                     <input
-//                         type="range"
-//                         min="0"
-//                         max="100"
-//                         value={value}
-//                         onChange={(e) => setValue(e.target.value)}
-//                         className="custom-range"
-//                         style={{ '--range-progress': `${value}%` }}
-//                     />
-//                 </div>
-//                 <h1 className='text-[#F3B204] text-[16px] sm:text-[20px]'>{formatDuration(foundAudio.duration)}</h1>
-//             </div>
-
-//             {/* Controls Section */}
-//             <div className='w-[90%] sm:w-[80%] lg:w-[57%] flex flex-col items-center justify-center'>
-//                 <div className='flex items-center justify-center w-full gap-2 mt-8 sm:gap-4 sm:mt-14'>
-//                     <button className='p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]'>
-//                         <BsFillSkipBackwardFill className='text-[#F3B204] text-[16px] sm:text-[20px]' />
-//                     </button>
-//                     <button className='p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]'>
-//                         <TfiControlBackward className='text-[#F3B204] text-[24px] sm:text-[30px]' />
-//                     </button>
-//                     <button className='p-3 sm:p-4 border-2 border-[#F3B204] rounded-[50px]' onClick={TogglePlay}>
-//                         {togglePlay ? (
-//                             <GiPauseButton className="text-[#F3B204] text-[32px] sm:text-[40px]" />
-//                         ) : (
-//                             <FaPlay className="text-[#F3B204] text-[32px] sm:text-[40px]" />
-//                         )}
-//                     </button>
-//                     <button className='p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]'>
-//                         <TfiControlForward className='text-[#F3B204] text-[24px] sm:text-[30px]' />
-//                     </button>
-//                     <button className='p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]'>
-//                         <BsFillSkipForwardFill className='text-[#F3B204] text-[16px] sm:text-[20px]' />
-//                     </button>
-//                 </div>
-//                 <div className="p-1 sm:p-2 border-2 border-[#F3B204] rounded-full mt-3 sm:mt-5 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] flex items-center justify-center">
-//                     <h1 className="text-[#F3B204] text-[13px] sm:text-[15px]">1.5x</h1>
-//                 </div>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default VoiceDetails
 import { useContext, useEffect, useState, useRef } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
@@ -108,7 +12,6 @@ import "../Css/VoiceScreen.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../Context/UserProvider";
 import DeleteModal from "../Component/DeleteModal";
-import { FaEdit } from "react-icons/fa";
 
 const VoiceDetails = () => {
   const [value, setValue] = useState(0);
@@ -182,15 +85,8 @@ const VoiceDetails = () => {
   if (!foundAudio) return <div>Audio not found</div>;
 
   return (
-    <div className="h-screen bg-[#04121C] w-full flex flex-col items-center justify-start">
+    <div className="min-h-screen bg-[#04121C] w-full flex flex-col">
       {/* Audio Element (hidden) */}
-      {/* <audio
-        ref={audioRef}
-        src={foundAudio.url}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedMetadata={handleTimeUpdate}
-        onEnded={() => setIsPlaying(false)}
-      /> */}
       <audio
         ref={audioRef}
         src={foundAudio.url}
@@ -200,22 +96,24 @@ const VoiceDetails = () => {
       />
 
       {/* Header Section */}
-      <div className="flex items-center w-full justify-between px-4 sm:justify-evenly text-[#F3B204] text-[20px] sm:text-[25px] mt-7 md:mt-10">
-        <FaArrowLeftLong onClick={() => navigate(-1)} />
+      <div className="flex items-start w-full justify-between sm:justify-start sm:gap-4 text-[#F3B204] px-4 sm:px-6 md:px-8 pt-4 sm:pt-6 md:pt-8 pb-4 sm:pb-6">
+        <FaArrowLeftLong 
+          onClick={() => navigate(-1)} 
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl cursor-pointer hover:text-[#F3B204]/80 transition-colors flex-shrink-0"
+        />
 
-        <div className="flex items-center justify-center flex-row gap-4 md:gap-[120px]">
-          <h1 className="text-center text-base md:text-[25px]">
+        <div className="flex items-center justify-center flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-[120px] flex-1 sm:flex-none sm:ml-auto">
+          <h1 className="text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-[25px] truncate max-w-[120px] sm:max-w-[200px] md:max-w-[300px] lg:max-w-none">
             {foundAudio.name}
           </h1>
-          <div className="flex items-center justify-center gap-2 md:gap-7">
-            {/* <MdDelete  onClick={DeleteRecording(foundAudio.id)}/>
-             */}
+          <div className="flex items-center justify-center flex-shrink-0 gap-2 sm:gap-3 md:gap-4 lg:gap-7">
             <button
               onClick={() =>
                 document.getElementById(`modal_${foundAudio.id}`).showModal()
               }
+              className="transition-opacity hover:opacity-80"
             >
-              <MdDelete />
+              <MdDelete className="text-lg sm:text-xl md:text-2xl" />
             </button>
             <DeleteModal
               audioId={foundAudio.id}
@@ -223,80 +121,106 @@ const VoiceDetails = () => {
             />
             <FaShareAlt
               onClick={() => downloadRecording(foundAudio)}
-              className="cursor-pointer"
+              className="text-lg transition-opacity cursor-pointer sm:text-xl md:text-2xl hover:opacity-80"
             />
           </div>
         </div>
       </div>
 
-      {/* Player Section */}
-      <div className="flex items-center justify-between md:mt-[150px] mt-[280px] lg:mt-[300px] w-[80%] gap-5 md:gap-0 lg:w-[57%]">
-        <h1 className="text-[#F3B204] text-[16px] sm:text-[20px]">
-          {formatDuration(Math.floor(currentTime))}
-        </h1>
-        <div className="w-[75%] sm:w-[80%] relative">
-          <input
-            type="range"
-            min="0"
-            max="100"
-            value={value}
-            onChange={handleSeek}
-            className="custom-range"
-            style={{ "--range-progress": `${value}%` }}
-          />
+      {/* Main Content Area - Empty or can add visual elements here */}
+      <div className="flex-1"></div>
+
+      {/* Fixed Bottom Player Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#111E28] border-t border-[#F3B204]/30 shadow-2xl">
+        <div className="px-4 py-4 mx-auto max-w-7xl sm:px-6 md:px-8 sm:py-5 md:py-6">
+          {/* Progress Bar Section */}
+          <div className="flex items-center justify-between w-full gap-3 mb-4 sm:gap-4 sm:mb-5">
+            <h1 className="text-[#F3B204] text-xs sm:text-sm md:text-base font-mono flex-shrink-0 min-w-[50px] sm:min-w-[60px]">
+              {formatDuration(Math.floor(currentTime))}
+            </h1>
+            <div className="relative flex-1 w-full">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={value}
+                onChange={handleSeek}
+                className="w-full custom-range"
+                style={{ "--range-progress": `${value}%` }}
+              />
+            </div>
+            <h1 className="text-[#F3B204] text-xs sm:text-sm md:text-base font-mono flex-shrink-0 min-w-[50px] sm:min-w-[60px] text-right">
+              {formatDuration(Math.floor(foundAudio.duration))}
+            </h1>
+          </div>
+
+          {/* Controls Section */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-5">
+            {/* Playback Speed Control */}
+            <button
+              className="p-2 sm:p-2.5 border-2 border-[#F3B204] rounded-full hover:bg-[#F3B204]/10 transition-colors active:scale-95 flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center"
+              onClick={changePlaybackSpeed}
+              title="Change playback speed"
+            >
+              <h1 className="text-[#F3B204] text-xs sm:text-sm md:text-base font-semibold">
+                {playbackRate}x
+              </h1>
+            </button>
+
+            {/* Skip Backward 10s */}
+            <button
+              className="p-2 sm:p-2.5 md:p-3 border-2 border-[#F3B204] rounded-full hover:bg-[#F3B204]/10 transition-colors active:scale-95 flex-shrink-0"
+              onClick={() => skipTime(-10)}
+              title="Skip backward 10s"
+            >
+              <BsFillSkipBackwardFill className="text-[#F3B204] text-base sm:text-lg md:text-xl" />
+            </button>
+
+            {/* Skip Backward 5s */}
+            <button
+              className="p-2.5 sm:p-3 md:p-3.5 border-2 border-[#F3B204] rounded-full hover:bg-[#F3B204]/10 transition-colors active:scale-95 flex-shrink-0"
+              onClick={() => skipTime(-5)}
+              title="Skip backward 5s"
+            >
+              <TfiControlBackward className="text-[#F3B204] text-lg sm:text-xl md:text-2xl" />
+            </button>
+
+            {/* Play/Pause Button */}
+            <button
+              className="p-3 sm:p-4 md:p-5 lg:p-6 border-2 border-[#F3B204] rounded-full bg-[#F3B204] hover:bg-[#F3B204]/90 transition-colors active:scale-95 flex-shrink-0"
+              onClick={togglePlay}
+              title={isPlaying ? "Pause" : "Play"}
+            >
+              {isPlaying ? (
+                <GiPauseButton className="text-[#04121C] text-2xl sm:text-3xl md:text-4xl" />
+              ) : (
+                <FaPlay className="text-[#04121C] text-2xl sm:text-3xl md:text-4xl ml-0.5" />
+              )}
+            </button>
+
+            {/* Skip Forward 5s */}
+            <button
+              className="p-2.5 sm:p-3 md:p-3.5 border-2 border-[#F3B204] rounded-full hover:bg-[#F3B204]/10 transition-colors active:scale-95 flex-shrink-0"
+              onClick={() => skipTime(5)}
+              title="Skip forward 5s"
+            >
+              <TfiControlForward className="text-[#F3B204] text-lg sm:text-xl md:text-2xl" />
+            </button>
+
+            {/* Skip Forward 10s */}
+            <button
+              className="p-2 sm:p-2.5 md:p-3 border-2 border-[#F3B204] rounded-full hover:bg-[#F3B204]/10 transition-colors active:scale-95 flex-shrink-0"
+              onClick={() => skipTime(10)}
+              title="Skip forward 10s"
+            >
+              <BsFillSkipForwardFill className="text-[#F3B204] text-base sm:text-lg md:text-xl" />
+            </button>
+          </div>
         </div>
-        <h1 className="text-[#F3B204] text-[16px] sm:text-[20px]">
-          {formatDuration(Math.floor(foundAudio.duration))}
-        </h1>
       </div>
 
-      {/* Controls Section */}
-      <div className="w-[90%] sm:w-[80%] lg:w-[57%] flex flex-col items-center justify-center">
-        <div className="flex items-center justify-center w-full gap-2 mt-8 sm:gap-4 sm:mt-14">
-          <button
-            className="p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]"
-            onClick={() => skipTime(-10)}
-          >
-            <BsFillSkipBackwardFill className="text-[#F3B204] text-[16px] sm:text-[20px]" />
-          </button>
-          <button
-            className="p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]"
-            onClick={() => skipTime(-5)}
-          >
-            <TfiControlBackward className="text-[#F3B204] text-[24px] sm:text-[30px]" />
-          </button>
-          <button
-            className="p-3 sm:p-4 border-2 border-[#F3B204] rounded-[50px]"
-            onClick={togglePlay}
-          >
-            {isPlaying ? (
-              <GiPauseButton className="text-[#F3B204] text-[32px] sm:text-[40px]" />
-            ) : (
-              <FaPlay className="text-[#F3B204] text-[32px] sm:text-[40px]" />
-            )}
-          </button>
-          <button
-            className="p-2 sm:p-3 border-2 border-[#F3B204] rounded-[50px]"
-            onClick={() => skipTime(5)}
-          >
-            <TfiControlForward className="text-[#F3B204] text-[24px] sm:text-[30px]" />
-          </button>
-          <button
-            className="p-1 sm:p-2 border-2 border-[#F3B204] rounded-[50px]"
-            onClick={() => skipTime(10)}
-          >
-            <BsFillSkipForwardFill className="text-[#F3B204] text-[16px] sm:text-[20px]" />
-          </button>
-        </div>
-        <div
-          className="p-1 sm:p-2 border-2 border-[#F3B204] rounded-full mt-3 sm:mt-5 w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] flex items-center justify-center cursor-pointer"
-          onClick={changePlaybackSpeed}
-        >
-          <h1 className="text-[#F3B204] text-[13px] sm:text-[15px]">
-            {playbackRate}x
-          </h1>
-        </div>
-      </div>
+      {/* Spacer to prevent content from being hidden behind fixed player */}
+      <div className="h-32 sm:h-36 md:h-40"></div>
     </div>
   );
 };

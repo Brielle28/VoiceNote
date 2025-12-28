@@ -139,14 +139,16 @@ const VoiceMenu = ({ audioId, modalId }) => {
   };
 
   return (
-    <dialog id={modalId} className="modal">
-      <div className="border-[1px] border-[#F3B204] modal-box rounded-[7px] bg-[#04121C] py-0 px-0">
+    <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
+      <div className="border-[1px] border-[#F3B204] modal-box rounded-[7px] bg-[#04121C] py-0 px-0 w-full max-w-md sm:max-w-lg md:max-w-xl">
         <div className="divide-y divide-[#F3B204]">
           {VoiceMenuList.map((action) => {
             const Content = (
-              <div className="flex items-center justify-start gap-10 py-3 pl-5 hover:bg-[#111E28] cursor-pointer">
-                {getIcon(action.icon)}
-                <p className="text-white text-base sm:text-lg md:text-[20px]">
+              <div className="flex items-center justify-start gap-4 sm:gap-6 md:gap-8 lg:gap-10 py-3 sm:py-4 pl-4 sm:pl-5 md:pl-6 hover:bg-[#111E28] cursor-pointer transition-colors active:bg-[#111E28]/80">
+                <span className="flex-shrink-0">
+                  {getIcon(action.icon)}
+                </span>
+                <p className="text-white text-sm sm:text-base md:text-lg lg:text-[20px]">
                   {action.text}
                 </p>
               </div>
@@ -155,7 +157,7 @@ const VoiceMenu = ({ audioId, modalId }) => {
             // Separate handling for different action types
             if (action.link) {
               return (
-                <Link key={action.id} to={`${action.link}/${audioId}`}>
+                <Link key={action.id} to={`${action.link}/${audioId}`} className="block">
                   {Content}
                 </Link>
               );
